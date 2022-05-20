@@ -123,7 +123,7 @@ const DOM = () => {
             <title>bearwishland</title>
           </Head>
           <MusicPlayer />
-          <div className="absolute border-2 border-solid rounded-full top-[50%] left-[50%] w-[10px] h-[10px] translate-x-[-50%] translate-y-[-50%] border-[rgba(0,0,0,0.5)]"></div>
+          <div className="absolute border-2 border-solid rounded-full top-[50%] left-[50%] w-[10px] h-[10px] translate-x-[-50%] translate-y-[-50%] border-[rgba(0,0,0,0.5)] z-20"></div>
           {addMessage ? <Modal /> : null}
         </>
       ) : (

@@ -23,12 +23,12 @@ export default function Modal() {
       mutate(`/api/messages`);
       setAddMessage(false);
     }
-  }, [resultData, mutate]);
+  }, [resultData, mutate, setAddMessage]);
 
   return (
     <form
       onSubmit={handleSubmit(onValid)}
-      className="absolute px-4 py-4 bg-white rounded-lg shadow-md top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+      className="absolute px-4 py-4 bg-white rounded-lg shadow-md top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-30"
     >
       <div className="flex flex-col justify-center max-w-xs px-2 py-4 max-h-52 space-y-4">
         <svg

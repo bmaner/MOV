@@ -16,41 +16,42 @@ export default function Header() {
           "fixed top-0 left-0 z-20 flex items-center sm:items-start justify-between h-auto px-3 py-1 md:px-5 md:pt-4 w-[100vw]"
         )}
       >
-        <div
-          className={cls(
-            router.pathname === "/"
-              ? "md:text-[15vw] md:leading-[12vw]"
-              : "text-[50px] md:leading-[50px]",
-            `text-[50px] cursor-pointer flex`
-          )}
-          onClick={() => {
-            window.location.href = "http://localhost:3000";
-          }}
-        >
-          <div className={cls("text-[rgba(242,242,242,0.1)] hidden sm:block")}>
-            MOV
-          </div>
+        <Link href={"/"}>
           <div
             className={cls(
-              "text-[rgba(242,242,242,0.5)] hidden sm:block",
               router.pathname === "/"
-                ? "-ml-[5px] md:-ml-[1.5rem]"
-                : "-ml-[5px]"
+                ? "md:text-[15vw] md:leading-[12vw]"
+                : "text-[50px] md:leading-[50px]",
+              `text-[50px] cursor-pointer flex`
             )}
           >
-            MOV
+            <div
+              className={cls("text-[rgba(242,242,242,0.1)] hidden sm:block")}
+            >
+              MOV
+            </div>
+            <div
+              className={cls(
+                "text-[rgba(242,242,242,0.5)] hidden sm:block",
+                router.pathname === "/"
+                  ? "-ml-[5px] md:-ml-[1.5rem]"
+                  : "-ml-[5px]"
+              )}
+            >
+              MOV
+            </div>
+            <div
+              className={cls(
+                "text-[rgba(242,242,242,1)]",
+                router.pathname === "/"
+                  ? "-ml-[5px] md:-ml-[1.5rem]"
+                  : "-ml-[5px]"
+              )}
+            >
+              MOV
+            </div>
           </div>
-          <div
-            className={cls(
-              "text-[rgba(242,242,242,1)]",
-              router.pathname === "/"
-                ? "-ml-[5px] md:-ml-[1.5rem]"
-                : "-ml-[5px]"
-            )}
-          >
-            MOV
-          </div>
-        </div>
+        </Link>
         <Link href={"/contact"}>
           <a
             className={cls(

@@ -41,7 +41,7 @@ export default function MusicPlayer() {
           left: 10,
           color: "rgba(0,0,0,0.9)",
           background: "#f2f2f2",
-          zIndex: 22,
+          zIndex: 100,
         }}
         autoPlay
         src={musicTracks[trackIndex].src}
