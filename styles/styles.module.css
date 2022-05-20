@@ -1,0 +1,24 @@
+.font_regular_500 {
+  font-family: mono45-headline, monospace;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.font_light_300 {
+  font-family: mono45-headline, monospace;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.font_bold_700 {
+  font-family: mono45-headline, monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.polygon {
+  clip-path: polygon(0 0, 88% 0, 100% 12%, 100% 100%, 12% 100%, 0 88%);
+  font-family: mono45-headline, monospace;
+  font-weight: 300;
+  font-style: normal;
+}
