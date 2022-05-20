@@ -1,4 +1,4 @@
-import Contact from "@/components/dom/Contact";
+import Contact from "../components/dom/Contact";
 
 const DOM = () => {
   return <Contact />;
