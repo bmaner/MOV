@@ -34,7 +34,7 @@ export default function Contact() {
       <div
         className={cls(
           styles.font_regular_500,
-          "relative px-4  flex flex-col justify-center items-center w-full h-full bg-[#d6c2ad] text-[#f2f2f2]"
+          "relative px-4  flex flex-col justify-center items-center w-full h-full bg-[#d6c2ad] text-[rgba(0,0,0,0.5)]"
         )}
       >
         <h3 className="text-3xl font-bold text-center">contact us</h3>

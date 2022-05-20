@@ -3,7 +3,6 @@ import React, { useRef, useEffect, useState } from "react";
 import Head from "next/head";
 import { cls } from "../libs/client/utils";
 import Loading from "../components/dom/Loading";
-import gsap from "gsap";
 import styles from "../styles/styles.module.css";
 import Link from "next/link";
 import useMounted from "../libs/client/useMounted";
