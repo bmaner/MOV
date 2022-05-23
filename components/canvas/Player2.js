@@ -70,7 +70,6 @@ const Player = (props) => {
   return (
     <>
       <mesh ref={ref} />
-      <FPVControls />
     </>
   );
 };

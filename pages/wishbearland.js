@@ -1,7 +1,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import Frames from "../components/canvas/Frames";
-import { Html, OrbitControls } from "@react-three/drei";
+import { Html, PointerLockControls } from "@react-three/drei";
 import Wood from "../components/canvas/Wood";
 import Plywood from "../components/canvas/Plywood";
 import {
@@ -27,9 +27,6 @@ const WallCom = dynamic(() => import("../components/canvas/Wall"), {
   ssr: false,
 });
 const MemoWallCom = dynamic(() => import("../components/canvas/Wall"), {
-  ssr: false,
-});
-const PlayerCom = dynamic(() => import("../components/canvas/Player"), {
   ssr: false,
 });
 const Player2Com = dynamic(() => import("../components/canvas/Player2"), {
@@ -221,6 +218,7 @@ const R3F = () => {
         <Wood position={[5.5, 0.3, -15.95]} />
         <Plywood position={[10, 5.5, -19.48]} />
         <Player2Com position={[13, 3, 5]} />
+        <PointerLockControls />
         <ArchCom />
         <StarsCom />
         <MirrorCom />
