@@ -11,7 +11,7 @@ export default function Stars() {
   function genRandom(min, max) {
     return Math.random() * (max - min) + min;
   }
-  return [...Array(30)].map((_, idx) => {
+  return [...Array(10)].map((_, idx) => {
     return (
       <Model
         key={idx}

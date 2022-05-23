@@ -1,7 +1,5 @@
 import { Canvas } from "@react-three/fiber";
 import { Preload } from "@react-three/drei";
-import { useStore } from "../../helpers/store";
-import { cls } from "../../libs/client/utils";
 import { Physics } from "@react-three/cannon";
 
 const LCanvas = ({ children }) => {

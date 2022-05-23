@@ -1,7 +1,6 @@
-import { Html, useCursor } from "@react-three/drei";
+import { Html, useCursor, useTexture } from "@react-three/drei";
 import React, { useRef, useState } from "react";
-import { useFrame, useLoader } from "@react-three/fiber";
-import { TextureLoader } from "three";
+import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { stickerData } from "../../libs/client/data";
 
@@ -37,7 +36,7 @@ export default function Stickers() {
 function Sticker({ idx, url, position, rotation }) {
   const mesh = useRef();
   const [hovered, hover] = useState(false);
-  const front = useLoader(TextureLoader, url);
+  const front = useTexture(url);
 
   useFrame(() => {
     mesh.current.position.x = THREE.MathUtils.lerp(
@@ -58,13 +57,12 @@ function Sticker({ idx, url, position, rotation }) {
         window.open("https://www.wishbearland.com/stickers", "_blank")
       }
     >
-      <meshPhongMaterial attachArray="material" color="white" />
-      <meshPhongMaterial attachArray="material" color="white" />
-      <meshPhongMaterial attachArray="material" color="white" />
-      <meshPhongMaterial attachArray="material" map={front} />
-      <meshBasicMaterial attachArray="material" color="white" />
-      <meshPhongMaterial attachArray="material" color="white" />
-      <boxBufferGeometry attach="geometry" args={[0.4, 0.005, 1]} />
+      <meshPhongMaterial
+        attachArray="material"
+        map={front}
+        side={THREE.DoubleSide}
+      />
+      <planeBufferGeometry attach="geometry" args={[0.4, 1]} />
     </mesh>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import Frames from "../components/canvas/Frames";
-import { Html, PointerLockControls } from "@react-three/drei";
+import { Html, PointerLockControls, useTexture } from "@react-three/drei";
 import Wood from "../components/canvas/Wood";
 import Plywood from "../components/canvas/Plywood";
 import {
@@ -254,7 +254,7 @@ const R3F = () => {
           </div>
         </Html>
         <Html
-          position={[11, 3, 0.7]}
+          position={[13, 2, 0.7]}
           rotation={[0, 0, 0]}
           transform
           sprite
@@ -262,6 +262,7 @@ const R3F = () => {
         >
           <div className="description">
             <span style={{ fontSize: "1.5em" }}>💡</span> <br />
+            Welcome! <br />
             좌클릭 : 방향조절 활성화 <br />
             ESC 키 : 방향조절 취소, 마우스 활성화
             <br />

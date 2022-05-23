@@ -1,8 +1,7 @@
 import { postcardData } from "../../libs/client/data";
-import { Html, useCursor } from "@react-three/drei";
+import { Html, useCursor, useTexture } from "@react-three/drei";
 import React, { useRef, useState } from "react";
-import { useFrame, useLoader } from "@react-three/fiber";
-import { TextureLoader } from "three";
+import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 export default function Postcards() {
@@ -37,9 +36,8 @@ export default function Postcards() {
 function Postcard({ idx, url, type, length }) {
   const mesh = useRef();
   const [hovered, hover] = useState(false);
-  const front = useLoader(TextureLoader, url);
-  const back = useLoader(
-    TextureLoader,
+  const front = useTexture(url);
+  const back = useTexture(
     type === "row"
       ? "/postcards/postcard_back_row.png"
       : "/postcards/postcard_back_col.png"
@@ -51,7 +49,7 @@ function Postcard({ idx, url, type, length }) {
       mesh.current.position.y,
       Math.cos(Math.PI * 2 * (idx / length) + t / 10) * 2 - 5
     );
-    mesh.current.rotation.z = Math.PI * 2 * (idx / length) + t / 10;
+    mesh.current.rotation.y = Math.PI * 2 * (idx / length) + t / 10;
     mesh.current.position.y = THREE.MathUtils.lerp(
       mesh.current.position.y,
       hovered ? 2.1 : 2,
@@ -69,20 +67,19 @@ function Postcard({ idx, url, type, length }) {
         2,
         Math.cos(Math.PI * 2 * (idx / length)) * 2 - 5,
       ]}
-      rotation={[Math.PI / 2, Math.PI, Math.PI * 2 * (idx / length)]}
+      rotation={[0, Math.PI * 2 * (idx / length), 0]}
       onClick={() =>
         window.open("https://www.wishbearland.com/stickers", "_blank")
       }
     >
-      <meshPhongMaterial attachArray="material" color="white" />
-      <meshPhongMaterial attachArray="material" color="white" />
-      <meshPhongMaterial attachArray="material" map={back} />
-      <meshPhongMaterial attachArray="material" map={front} />
-      <meshBasicMaterial attachArray="material" color="white" />
-      <meshPhongMaterial attachArray="material" color="white" />
-      <boxBufferGeometry
+      <meshPhongMaterial
+        attachArray="material"
+        map={front}
+        side={THREE.DoubleSide}
+      />
+      <planeBufferGeometry
         attach="geometry"
-        args={type === "col" ? [0.5, 0.001, 0.75] : [0.75, 0.001, 0.5]}
+        args={type === "col" ? [0.5, 0.75] : [0.75, 0.5]}
       />
     </mesh>
   );

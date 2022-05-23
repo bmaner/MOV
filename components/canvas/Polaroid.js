@@ -36,8 +36,7 @@ export default function Polaroids() {
 function Polaroid({ idx, url, position, rotation }) {
   const mesh = useRef();
   const [hovered, hover] = useState(false);
-  const front = useTexture(url);
-
+  const texture = useTexture(url);
   useFrame(() => {
     mesh.current.position.x = THREE.MathUtils.lerp(
       mesh.current.position.x,
@@ -47,23 +46,20 @@ function Polaroid({ idx, url, position, rotation }) {
   });
   useCursor(hovered);
   return (
-    <mesh
-      ref={mesh}
-      onPointerOver={(e) => (e.stopPropagation(), hover(true))}
-      onPointerOut={() => hover(false)}
-      position={position}
-      rotation={rotation}
-      onClick={() =>
-        window.open("https://www.wishbearland.com/stickers", "_blank")
-      }
-    >
-      <meshPhongMaterial attachArray="material" color="white" />
-      <meshPhongMaterial attachArray="material" color="white" />
-      <meshPhongMaterial attachArray="material" color="white" />
-      <meshPhongMaterial attachArray="material" map={front} />
-      <meshBasicMaterial attachArray="material" color="white" />
-      <meshPhongMaterial attachArray="material" color="white" />
-      <boxBufferGeometry attach="geometry" args={[0.76, 0.005, 1]} />
-    </mesh>
+    <>
+      <mesh
+        ref={mesh}
+        onPointerOver={(e) => (e.stopPropagation(), hover(true))}
+        onPointerOut={() => hover(false)}
+        position={position}
+        rotation={rotation}
+        onClick={() =>
+          window.open("https://www.wishbearland.com/stickers", "_blank")
+        }
+      >
+        <meshPhongMaterial map={texture} side={THREE.DoubleSide} />
+        <planeBufferGeometry attach="geometry" args={[0.76, 1]} />
+      </mesh>
+    </>
   );
 }
