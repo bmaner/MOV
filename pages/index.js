@@ -61,11 +61,14 @@ const DOM = () => {
 
 // canvas components goes here
 const R3F = () => {
+  const isMounted = useMounted();
   return (
     <>
-      <LCanvas>
-        <WishBearsCom />
-      </LCanvas>
+      {isMounted ? (
+        <LCanvas>
+          <WishBearsCom />
+        </LCanvas>
+      ) : null}
     </>
   );
 };

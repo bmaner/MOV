@@ -7,7 +7,7 @@ export default function Loading() {
       <Head>
         <title>loading</title>
       </Head>
-      <div className="sticky top-0 -z-10 min-h-screen flex flex-col items-center justify-center">
+      <div className="sticky top-0 -z-10 h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
         <video
           autoPlay
           muted

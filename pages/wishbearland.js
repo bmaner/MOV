@@ -131,147 +131,150 @@ const DOM = () => {
 };
 
 const R3F = () => {
+  const isMounted = useMounted();
   return (
     <>
-      <LCanvas>
-        <MemoWallCom
-          position={[0, 5.5, -20]}
-          rotation={[0, 0, 0]}
-          longer={true}
-        />
-        {wallData.map((el, idx) => {
-          return (
-            <WallCom
-              position={el.position}
-              rotation={el.rotation}
-              longer={el.longer}
-              key={idx}
-            />
-          );
-        })}
-        {centerSeperationWallData.map((el, idx) => {
-          return (
-            <CenterSeperationWallCom
-              position={el.position}
-              rotation={el.rotation}
-              longer={el.longer}
-              key={idx}
-            />
-          );
-        })}
-        {wallPaperData.map((el, idx) => {
-          return (
-            <WallPaperCom
-              position={el.position}
-              rotation={el.rotation}
-              args={el.args}
-              set1={el.set1}
-              set2={el.set2}
-              url={el.url}
-              key={idx}
-            />
-          );
-        })}
-        {transImagePaperData.map((el, idx) => {
-          return (
-            <TransImagePaper
-              position={el.position}
-              rotation={el.rotation}
-              args={el.args}
-              url={el.url}
-              key={idx}
-            />
-          );
-        })}
-        <FloorCom position={[0, 0.5, 0]} />
-        <ambientLight intensity={0.25} />
-        <pointLight
-          castShadow={true}
-          receiveShadow={true}
-          intensity={0.4}
-          position={[10, 10, 5]}
-        />
-        <pointLight
-          castShadow={true}
-          receiveShadow={true}
-          intensity={0.5}
-          position={[-6, 10, 11]}
-        />
-        <pointLight
-          castShadow={true}
-          receiveShadow={true}
-          intensity={0.7}
-          position={[-6, 10, -10]}
-        />
-        <pointLight
-          castShadow={true}
-          receiveShadow={true}
-          intensity={0.7}
-          position={[10, 10, -10]}
-        />
-        <Frames />
-        <FlowerCom />
-        <SmallPartitionCom
-          position={[5, 5.5, 18]}
-          rotation={[0, Math.PI / 2, 0]}
-        />
-        <Wood position={[5.5, 0.3, -15.95]} />
-        <Plywood position={[10, 5.5, -19.48]} />
-        <Player2Com position={[13, 3, 5]} />
-        <PointerLockControls />
-        <ArchCom />
-        <StarsCom />
-        <MirrorCom />
-        <RunWishBearCom />
-        <FlyWishBearCom />
-        <EntranceTextCom />
-        <Ceil />
-        <PostcardsCom />
-        <StickersCom />
-        <PolaroidsCom />
-        <Html
-          position={[14, 5, -6]}
-          rotation={[0, 0, 0]}
-          transform
-          sprite
-          occlude
-        >
-          <div className="description">
-            <span style={{ fontSize: "1.5em" }}>💡</span> 상품을 클릭하면 구매
-            페이지로 넘어갑니다.
-          </div>
-        </Html>
-        <Html
-          position={[0, 9, -19.4]}
-          rotation={[0, 0, 0]}
-          transform
-          sprite
-          occlude
-        >
-          <div className="description">
-            <span style={{ fontSize: "1.5em" }}>💡</span> +를 클릭해서 메세지를
-            남겨주세요!
-          </div>
-        </Html>
-        <Html
-          position={[13, 2, 0.7]}
-          rotation={[0, 0, 0]}
-          transform
-          sprite
-          occlude
-        >
-          <div className="description">
-            <span style={{ fontSize: "1.5em" }}>💡</span> <br />
-            Welcome! <br />
-            좌클릭 : 방향조절 활성화 <br />
-            ESC 키 : 방향조절 취소, 마우스 활성화
-            <br />
-            W,A,S,D : 이동
-          </div>
-        </Html>
-        <MessagesCom />
-        <PlusCom />
-      </LCanvas>
+      {isMounted ? (
+        <LCanvas>
+          <MemoWallCom
+            position={[0, 5.5, -20]}
+            rotation={[0, 0, 0]}
+            longer={true}
+          />
+          {wallData.map((el, idx) => {
+            return (
+              <WallCom
+                position={el.position}
+                rotation={el.rotation}
+                longer={el.longer}
+                key={idx}
+              />
+            );
+          })}
+          {centerSeperationWallData.map((el, idx) => {
+            return (
+              <CenterSeperationWallCom
+                position={el.position}
+                rotation={el.rotation}
+                longer={el.longer}
+                key={idx}
+              />
+            );
+          })}
+          {wallPaperData.map((el, idx) => {
+            return (
+              <WallPaperCom
+                position={el.position}
+                rotation={el.rotation}
+                args={el.args}
+                set1={el.set1}
+                set2={el.set2}
+                url={el.url}
+                key={idx}
+              />
+            );
+          })}
+          {transImagePaperData.map((el, idx) => {
+            return (
+              <TransImagePaper
+                position={el.position}
+                rotation={el.rotation}
+                args={el.args}
+                url={el.url}
+                key={idx}
+              />
+            );
+          })}
+          <FloorCom position={[0, 0.5, 0]} />
+          <ambientLight intensity={0.25} />
+          <pointLight
+            castShadow={true}
+            receiveShadow={true}
+            intensity={0.4}
+            position={[10, 10, 5]}
+          />
+          <pointLight
+            castShadow={true}
+            receiveShadow={true}
+            intensity={0.5}
+            position={[-6, 10, 11]}
+          />
+          <pointLight
+            castShadow={true}
+            receiveShadow={true}
+            intensity={0.7}
+            position={[-6, 10, -10]}
+          />
+          <pointLight
+            castShadow={true}
+            receiveShadow={true}
+            intensity={0.7}
+            position={[10, 10, -10]}
+          />
+          <Frames />
+          <FlowerCom />
+          <SmallPartitionCom
+            position={[5, 5.5, 18]}
+            rotation={[0, Math.PI / 2, 0]}
+          />
+          <Wood position={[5.5, 0.3, -15.95]} />
+          <Plywood position={[10, 5.5, -19.48]} />
+          <Player2Com position={[13, 3, 5]} />
+          <PointerLockControls />
+          <ArchCom />
+          <StarsCom />
+          <MirrorCom />
+          <RunWishBearCom />
+          <FlyWishBearCom />
+          <EntranceTextCom />
+          <Ceil />
+          <PostcardsCom />
+          <StickersCom />
+          <PolaroidsCom />
+          <Html
+            position={[14, 5, -6]}
+            rotation={[0, 0, 0]}
+            transform
+            sprite
+            occlude
+          >
+            <div className="description">
+              <span style={{ fontSize: "1.5em" }}>💡</span> 상품을 클릭하면 구매
+              페이지로 넘어갑니다.
+            </div>
+          </Html>
+          <Html
+            position={[0, 9, -19.4]}
+            rotation={[0, 0, 0]}
+            transform
+            sprite
+            occlude
+          >
+            <div className="description">
+              <span style={{ fontSize: "1.5em" }}>💡</span> +를 클릭해서
+              메세지를 남겨주세요!
+            </div>
+          </Html>
+          <Html
+            position={[13, 2, 0.7]}
+            rotation={[0, 0, 0]}
+            transform
+            sprite
+            occlude
+          >
+            <div className="description">
+              <span style={{ fontSize: "1.5em" }}>💡</span> <br />
+              Welcome! <br />
+              좌클릭 : 방향조절 활성화 <br />
+              ESC 키 : 방향조절 취소, 마우스 활성화
+              <br />
+              W,A,S,D : 이동
+            </div>
+          </Html>
+          <MessagesCom />
+          <PlusCom />
+        </LCanvas>
+      ) : null}
     </>
   );
 };
